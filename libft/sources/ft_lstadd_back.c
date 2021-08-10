@@ -1,40 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajordan- <ajordan-@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/22 10:15:22 by ajordan-          #+#    #+#             */
-/*   Updated: 2021/08/10 10:46:21 by ajordan-         ###   ########.fr       */
+/*   Created: 2021/08/09 14:04:23 by ajordan-          #+#    #+#             */
+/*   Updated: 2021/08/09 14:44:37 by ajordan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	size_t	i;
+	t_list	*aux_lst;
 
-	if (!dst && !src)
-		return (0);
-	i = 0;
-	if ((size_t)dst - (size_t)src < len)
+	if (new)
 	{
-		i = len - 1;
-		while (i < len)
+		if (!*lst)
 		{
-			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-			i--;
+			*lst = new;
+			return ;
 		}
+		aux_lst = ft_lstlast(*lst);
+		aux_lst->next = new;
 	}
-	else
-	{
-		while (i < len)
-		{
-			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-			i++;
-		}
-	}
-	return (dst);
 }

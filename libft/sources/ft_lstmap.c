@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajordan- <ajordan-@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/22 10:15:22 by ajordan-          #+#    #+#             */
-/*   Updated: 2021/08/10 10:46:21 by ajordan-         ###   ########.fr       */
+/*   Created: 2021/08/10 11:03:37 by ajordan-          #+#    #+#             */
+/*   Updated: 2021/08/10 11:21:49 by ajordan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
-{
-	size_t	i;
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
-	if (!dst && !src)
+{
+	t_list	*new;
+	t_list	*aux;
+	t_list	*auxnew;
+
+	aux = lst;
+	new = malloc(sizeof(t_list));
+	if (!new)
 		return (0);
-	i = 0;
-	if ((size_t)dst - (size_t)src < len)
+	auxnew = new;
+	while (aux)
 	{
-		i = len - 1;
-		while (i < len)
-		{
-			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-			i--;
-		}
+		auxnew->content = f(aux->content);
+		auxnew->next = malloc(sizeof(t_list));
+		if (!(auxnew->next))
+			ft_lstclear(&aux, del);
+		aux = aux->next;
+		auxnew = auxnew->next;
 	}
-	else
-	{
-		while (i < len)
-		{
-			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-			i++;
-		}
-	}
-	return (dst);
+	return (new);
 }

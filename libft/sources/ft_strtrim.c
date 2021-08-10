@@ -6,7 +6,7 @@
 /*   By: ajordan- <ajordan-@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 13:02:42 by ajordan-          #+#    #+#             */
-/*   Updated: 2021/08/02 12:00:15 by ajordan-         ###   ########.fr       */
+/*   Updated: 2021/08/06 13:40:50 by ajordan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!str)
 		return (0);
 	while (start < end)
-		str[i++] = s1[start++];
+	{
+		str[i] = s1[start];
+		i++;
+		start++;
+	}
 	str[i] = '\0';
 	return (str);
 }
