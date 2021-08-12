@@ -6,7 +6,7 @@
 /*   By: ajordan- <ajordan-@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 10:38:39 by ajordan-          #+#    #+#             */
-/*   Updated: 2021/07/27 11:34:29 by ajordan-         ###   ########.fr       */
+/*   Updated: 2021/08/11 14:02:00 by ajordan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != 0 && c != *s)
+	while ((char)c != *s)
+	{
+		if (!*s)
+			return (0);
 		s++;
-	if (*s == c)
-		return ((char *)s);
-	return (0);
+	}
+	return ((char *)s);
 }

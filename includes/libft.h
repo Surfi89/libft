@@ -6,7 +6,7 @@
 /*   By: ajordan- <ajordan-@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 09:41:33 by ajordan-          #+#    #+#             */
-/*   Updated: 2021/08/10 11:07:55 by ajordan-         ###   ########.fr       */
+/*   Updated: 2021/08/11 12:13:02 by ajordan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 // ---------------------------------------------------------
 //
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -45,10 +45,10 @@ int		ft_atoi(const char *str);
 size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
-int		ft_strcmp(const char *s1, const char *s2);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
-char	*ft_strcat(char *s1, const char *s2);
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);

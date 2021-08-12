@@ -6,13 +6,13 @@
 /*   By: ajordan- <ajordan-@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 13:53:28 by ajordan-          #+#    #+#             */
-/*   Updated: 2021/08/09 11:41:36 by ajordan-         ###   ########.fr       */
+/*   Updated: 2021/08/12 12:00:49 by ajordan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_strcount(char const *str, char c)
+static int	ft_count_words(char const *str, char c)
 {
 	int	i;
 	int	count;
@@ -26,7 +26,7 @@ static int	ft_strcount(char const *str, char c)
 		else
 		{
 			count++;
-			while (str[i] != c)
+			while (str[i] && str[i] != c)
 				i++;
 		}
 	}
@@ -48,7 +48,7 @@ static char	*ft_putword(char *word, char const *s, int i, int word_len)
 	return (word);
 }
 
-static char	**ft_split_w(char const *s, char c, char **s2, int len)
+static char	**ft_split_words(char const *s, char c, char **s2, int num_words)
 {
 	int	i;
 	int	word;
@@ -57,11 +57,11 @@ static char	**ft_split_w(char const *s, char c, char **s2, int len)
 	i = 0;
 	word = 0;
 	word_len = 0;
-	while (word < len)
+	while (word < num_words)
 	{
-		while (s[i] == c)
+		while (s[i] && s[i] == c)
 			i++;
-		while (s[i] != c)
+		while (s[i] && s[i] != c)
 		{
 			i++;
 			word_len++;
@@ -80,14 +80,14 @@ static char	**ft_split_w(char const *s, char c, char **s2, int len)
 char	**ft_split(char const *s, char c)
 {
 	char			**s2;
-	unsigned int	len;
+	unsigned int	num_words;
 
 	if (!s)
 		return (0);
-	len = ft_strcount(s, c);
-	s2 = (char **)malloc(sizeof(char *) * (len + 1));
+	num_words = ft_count_words(s, c);
+	s2 = (char **)malloc(sizeof(char *) * (num_words + 1));
 	if (!s2)
 		return (0);
-	ft_split_w(s, c, s2, len);
+	ft_split_words(s, c, s2, num_words);
 	return (s2);
 }
