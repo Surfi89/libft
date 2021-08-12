@@ -123,6 +123,5 @@ You can use any of this third party testers to test the project
 
 
 * [Tripouille/libfTester](https://github.com/Tripouille/libftTester)
-* [ska42/libft-war-machine](https://github.com/Night-squad/libft-war-machine-v2019)
-* [jtoty/Libftest](https://github.com/jtoty/Libftest)
+* [ska42/libft-war-machine](https://github.com/ska42/libft-war-machine)
 * [alelievr/libft-unit-test](https://github.com/alelievr/libft-unit-test)
