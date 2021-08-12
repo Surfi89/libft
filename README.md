@@ -121,6 +121,8 @@ To use the library functions in your code, simply include its header:
 
 You can use any of this third party testers to test the project
 
+
+* [Tripouille/libfTester](https://github.com/Tripouille/libftTester)
+* [Night-squad/libft-war-machine-v2019](https://github.com/Night-squad/libft-war-machine-v2019)
 * [jtoty/Libftest](https://github.com/jtoty/Libftest)
 * [alelievr/libft-unit-test](https://github.com/alelievr/libft-unit-test)
-* [Night-squad/libft-war-machine-v2019](https://github.com/Night-squad/libft-war-machine-v2019)
