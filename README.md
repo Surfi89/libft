@@ -17,8 +17,6 @@
 <h3 align="center">
 	<a href="#%EF%B8%8F-about">About</a>
 	<span> · </span>
-	<a href="#-index">Index</a>
-	<span> · </span>
 	<a href="#%EF%B8%8F-usage">Usage</a>
 	<span> · </span>
 	<a href="#-testing">Testing</a>
@@ -26,14 +24,12 @@
 
 ---
 
-## 🗣️ About
+## 💡 About the project
 
 > _The aim of this project is to code a C library regrouping usual functions that you'll be allowed to use in all your other projects._
 
-For detailed information, refer to the [**subject of this project**](https://github.com/appinha/42cursus/tree/master/_PDFs).
+For more detailed information, look at the [**subject of this project**](https://github.com/Surfi89/42cursus/tree/main/Subject%20PDFs).
 
-	🚀 TLDR: this project consists of coding basic C functions (see below), which are then compiled
-	into a library for use in other projects of the cursus.
 
 ### Functions from `<ctype.h>` library
 
@@ -97,28 +93,20 @@ For detailed information, refer to the [**subject of this project**](https://git
 * [`ft_lstmap`](libft/sources/ft_lstmap.c)				- apply function to content of all list's elements into new list.
 
 
-## 📑 Index
-
-`@root`
-
-* [**📁 libft:**](libft/) updated source code, refactored for use in other projects; includes [`get_next_line`](https://github.com/appinha/42cursus-01-get_next_line) and [`printf`](https://github.com/appinha/42cursus-01-ft_printf) functions.
-* **📁 submX folder(s):** source code submitted to the cursus (including failed and succeeded submissions).
-* [**📁 testing:**](testing/) my own testing program.
-
 ## 🛠️ Usage
 
 ### Requirements
 
-The library is written in C language and thus needs the **`gcc` compiler** and some standard **C libraries** to run.
+The library is written in C language and needs the **`gcc` compiler** and some standard **C libraries** to run.
 
 ### Instructions
 
 **1. Compiling the library**
 
-To compile the library, run:
+To compile the library, go to its path and run:
 
 ```shell
-$ cd path/to/libft && make
+$ make
 ```
 
 **2. Using it in your code**
@@ -129,32 +117,10 @@ To use the library functions in your code, simply include its header:
 #include "libft.h"
 ```
 
-and, when compiling your code, add the required flags:
-
-```shell
--lft -L path/to/libft.a -I path/to/libft.h
-```
-
 ## 📋 Testing
 
-**1. First, configure the path to the libft folder in the Makefile (inside `/testing/`):**
-
-```Makefile
-#############################
-## Path to Libft directory ##
-#############################
-DIR		= ../
-```
-
-**2. Then run:**
-
-```shell
-make t
-```
-
-### Third-party testers
+You can use any of this third party testers to test the project
 
 * [jtoty/Libftest](https://github.com/jtoty/Libftest)
 * [alelievr/libft-unit-test](https://github.com/alelievr/libft-unit-test)
 * [Night-squad/libft-war-machine-v2019](https://github.com/Night-squad/libft-war-machine-v2019)
-* [t0mm4rx/libftdestructor](https://github.com/t0mm4rx/libftdestructor)
