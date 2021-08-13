@@ -30,6 +30,9 @@
 
 For more detailed information, look at the [**subject of this project**](https://github.com/Surfi89/42cursus/tree/main/Subject%20PDFs).
 
+**NOTE:** To be successful with moulinette on this project I had to put all the files in the same directory.
+I have just put them in folders and modified the Makefile to have a better organized repository.
+
 
 ### Functions from `<ctype.h>` library
 
