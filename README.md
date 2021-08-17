@@ -8,7 +8,7 @@
 
 <p align="center">
 	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/surfi89/libft?color=lightblue" />
-	<img alt="Number of lines of code" src="https://img.shields.io/tokei/lines/github/surfi89/libft?color=yellowgreen" />
+	<img alt="Number of lines of code" src="https://img.shields.io/tokei/lines/github/surfi89/libft?color=critical" />
 	<img alt="Code language count" src="https://img.shields.io/github/languages/count/surfi89/libft?color=yellow" />
 	<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/surfi89/libft?color=blue" />
 	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/surfi89/libft?color=green" />
@@ -108,11 +108,27 @@ The library is written in C language and needs the **`gcc` compiler** and some s
 
 To compile the library, go to its path and run:
 
+For all mandatory functions:
+
 ```shell
 $ make
 ```
 
-**2. Using it in your code**
+For bonus functions:
+
+```shell
+$ make bonus
+```
+
+**2. Cleaning all binary (.o) and executable files (.a)**
+
+To clean all files generated while doing a make, go to the path and run:
+
+```shell
+$ make fclean
+```
+
+**3. Using it in your code**
 
 To use the library functions in your code, simply include its header:
 
