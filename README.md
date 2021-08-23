@@ -42,7 +42,7 @@ I have just put them in folders and modified the Makefile to have a better organ
 
 ### Functions from `<ctype.h>` library
 
-* [`ft_isascii`](libft/sources/ft_isascii.c)			- test for ASCII character.
+* [`ft_isascii`](sources/ft_isascii.c)			- test for ASCII character.
 * [`ft_isalnum`](libft/sources/ft_isalnum.c)			- alphanumeric character test.
 * [`ft_isalpha`](libft/sources/ft_isalpha.c)			- alphabetic character test.
 * [`ft_isdigit`](libft/sources/ft_isdigit.c)			- decimal-digit character test.
