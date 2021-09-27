@@ -6,15 +6,34 @@
 #    By: ajordan- <ajordan-@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/27 09:39:13 by ajordan-          #+#    #+#              #
-#    Updated: 2021/08/10 11:08:24 by ajordan-         ###   ########.fr        #
+#    Updated: 2021/09/27 12:37:45 by ajordan-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+#Variables
+
 NAME		=	libft.a
+INCLUDES	=	includes
+SRCS_DIR 	=	src/
+OBJS_DIR	=	bin/
+CC			=	gcc
+CFLAGS		=	-Wall -Werror -Wextra
+RM			=	rm -f
+AR			=	ar rcs
 
-INCLUDE_DIR	=	includes
+#Colors
 
-SRCS_DIR 	=	sources
+DEF_COLOR = \033[0;39m
+GRAY = \033[0;90m
+RED = \033[0;91m
+GREEN = \033[0;92m
+YELLOW = \033[0;93m
+BLUE = \033[0;94m
+MAGENTA = \033[0;95m
+CYAN = \033[0;96m
+WHITE = \033[0;97m
+
+#Sources
 
 SRC_FILES	=	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 				ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
@@ -24,48 +43,45 @@ SRC_FILES	=	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 				ft_strtrim.c ft_itoa.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c \
 				ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_split.c
 
-SRCS 		= 	$(addprefix $(SRCS_DIR), $(SRC_FILES))
-
 BONUS_FILES	= 	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 				ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
 				ft_lstmap.c
 
-OBJS_DIR	=	objs
-OBJS		=	$(subst $(SRCS_DIR), $(DIR_OBJS), $(SRCS:.c=.o))
-OBJS_PREFIX	=	$(addprefix $(OBJS_DIR)/, $(OBJS))
+#Binaries
 
-OBJSB 		=	$(subst $(SRCS_DIR), $(DIR_OBJS), $(BONUS_FILES:.c=.o))
-B_O_PREFIX	=	$(addprefix $(OBJS_DIR)/, $(OBJSB))
+SRCS 				= 	$(addprefix $(SRCS_DIR), $(SRC_FILES))
 
-CC			=	gcc
+OBJS				=	$(SRC_FILES:.c=.o)
+OBJS_PREFIXED		=	$(addprefix $(OBJS_DIR), $(OBJS))
 
-CFLAGS		=	-Wall -Werror -Wextra
+BONUS_OBJS 			=	$(BONUS_FILES:.c=.o)
+BONUS_OBJS_PREFIXED	=	$(addprefix $(OBJS_DIR), $(BONUS_OBJS))
 
-RM			=	rm -f
+###
 
-$(OBJS_DIR)/%.o : $(SRCS_DIR)/%.c
+$(OBJS_DIR)%.o : $(SRCS_DIR)%.c
 			@mkdir -p $(OBJS_DIR)
-			@echo "Compiling: $<"
-			@$(CC) $(CFLAGS) -I $(INCLUDE_DIR) -c $< -o $@
+			@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
+			@$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
 
 all:		$(NAME)
 
-$(NAME):	$(OBJS_PREFIX)
-			@ar rcs $(NAME) $(OBJS_PREFIX)
-			@echo "Libft compiled!"
+$(NAME):	$(OBJS_PREFIXED)
+			@$(AR) $(NAME) $(OBJS_PREFIXED)
+			@echo "$(GREEN)Libft compiled!$(DEF_COLOR)"
+
+bonus:		$(BONUS_OBJS_PREFIXED)
+			@$(AR) $(NAME) $(BONUS_OBJS_PREFIXED)
+			@echo "$(GREEN)Libft bonus compiled!$(DEF_COLOR)"
 
 clean:
 			@$(RM) -r $(OBJS_DIR)
-			@echo "Objects cleaned!"
+			@echo "$(BLUE)Libft binary files cleaned!$(DEF_COLOR)"
 
 fclean:		clean
 			@$(RM) $(NAME)
-			@echo "Executable cleaned!"
+			@echo "$(CYAN)Libft executable files cleaned!$(DEF_COLOR)"
 
 re:			fclean all
-
-bonus:		$(B_O_PREFIX)
-			@ar rcs $(NAME) $(B_O_PREFIX)
-			@echo "Libft Bonus Compiled!"
 
 .PHONY:		all clean fclean re
