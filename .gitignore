@@ -1,4 +1,4 @@
-#System files
+# System files
 .DS_Store
 
 # Object files
@@ -10,6 +10,9 @@
 
 # Executables
 *.out
+
+# Temp files
+*.swp
 
 # Debug files
 *.dSYM/
